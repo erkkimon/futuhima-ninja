@@ -20,10 +20,6 @@
             background: #000;
             color: #ededed;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             padding: 2rem;
             position: relative;
             overflow-x: hidden;
@@ -43,10 +39,16 @@
         }
 
         .container {
-            max-width: 700px;
-            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
             position: relative;
             z-index: 1;
+            padding: 4rem 0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 5rem;
         }
 
         .logo {
@@ -64,46 +66,129 @@
         .tagline {
             font-size: 1.25rem;
             color: #888;
-            margin-bottom: 4rem;
             font-weight: 400;
         }
 
-        .services {
-            margin-bottom: 3.5rem;
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
-            margin-top: 1rem;
         }
 
         .service-card {
             background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 12px;
-            padding: 1.5rem;
+            padding: 1.75rem;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
             border-color: rgba(255,255,255,0.2);
             background: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
-            transform: translateY(-2px);
         }
 
         .service-card h3 {
-            font-size: 0.875rem;
-            font-weight: 500;
+            font-size: 1rem;
+            font-weight: 600;
             color: #fff;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .service-card p {
+            font-size: 0.9rem;
+            color: #888;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .models {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .model-tag {
+            font-size: 0.75rem;
+            color: #666;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.35rem 0.7rem;
+            border-radius: 6px;
+        }
+
+        .partner-card {
+            background: linear-gradient(145deg, rgba(100, 100, 255, 0.08) 0%, rgba(100, 100, 255, 0.02) 100%);
+            border: 1px solid rgba(100, 100, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.75rem;
+        }
+
+        .partner-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+
+        .partner-card p {
+            font-size: 0.9rem;
+            color: #888;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .partner-card a {
+            color: #8888ff;
+            text-decoration: none;
+        }
+
+        .partner-card a:hover {
+            text-decoration: underline;
+        }
+
+        .examples {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .examples li {
             font-size: 0.875rem;
             color: #666;
-            line-height: 1.5;
+            padding-left: 1rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .examples li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #444;
+        }
+
+        .cta {
+            text-align: center;
+            margin: 4rem 0;
         }
 
         .cta-button {
@@ -118,7 +203,6 @@
             font-weight: 500;
             border-radius: 9999px;
             transition: all 0.2s ease;
-            margin-bottom: 5rem;
         }
 
         .cta-button:hover {
@@ -137,6 +221,7 @@
         }
 
         .legal {
+            text-align: center;
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 0.8125rem;
@@ -162,14 +247,17 @@
 
             .tagline {
                 font-size: 1.1rem;
-                margin-bottom: 3rem;
+            }
+
+            .container {
+                padding: 2rem 0;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
             }
 
-            .legal br {
+            .legal span {
                 display: none;
             }
 
@@ -178,39 +266,88 @@
                 flex-direction: column;
                 gap: 0.25rem;
             }
-
-            .legal span {
-                display: none;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="logo">Futuhima</h1>
-        <p class="tagline">AI Consultation Services</p>
+        <header class="header">
+            <h1 class="logo">Futuhima</h1>
+            <p class="tagline">AI Consultation Services</p>
+        </header>
 
-        <div class="services">
+        <section class="section">
+            <h2 class="section-title">Services</h2>
+
             <div class="services-grid">
-                <div class="service-card">
-                    <h3>LLM Fine-tuning</h3>
-                    <p>Custom large language models tailored to your needs</p>
-                </div>
-                <div class="service-card">
-                    <h3>Open Models</h3>
-                    <p>Image, video & audio model customization</p>
+            <div class="service-card">
+                <h3>LLM Fine-tuning & Deployment</h3>
+                <p>Custom fine-tuning of large language models for your specific use case. Includes local inference setup using <a href="https://github.com/erkkimon/vllama" style="color: #8888ff; text-decoration: none;">vLlama</a> for private, GPU-accelerated deployment on desktop hardware.</p>
+                <div class="models">
+                    <span class="model-tag">Qwen3</span>
+                    <span class="model-tag">DeepSeek</span>
+                    <span class="model-tag">Kimi-K2</span>
+                    <span class="model-tag">Devstral</span>
+                    <span class="model-tag">Ministral</span>
                 </div>
             </div>
+
+            <div class="service-card">
+                <h3>Video Generation</h3>
+                <p>Fine-tuning of open video models and custom workflows for video generation and editing. API implementations available for custom models. Delivered as ready-to-use pipelines for your content creation needs.</p>
+                <div class="models">
+                    <span class="model-tag">Wan 2.1</span>
+                    <span class="model-tag">Wan 2.2</span>
+                    <span class="model-tag">LTX-Video 2</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h3>Image Generation & Editing</h3>
+                <p>Fine-tuning of open image models and custom workflows for generation and editing. Tailored pipelines for product imagery, creative assets, and batch processing.</p>
+                <div class="models">
+                    <span class="model-tag">Flux</span>
+                    <span class="model-tag">Qwen Edit</span>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h3>Audio & Speech</h3>
+                <p>Fine-tuning of open audio models for voice synthesis, audio generation, and speech-to-text workflows.</p>
+                <div class="models">
+                    <span class="model-tag">Dia</span>
+                    <span class="model-tag">Whisper</span>
+                    <span class="model-tag">Kokoro</span>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Partnership</h2>
+
+            <div class="partner-card">
+                <h3>Benquemax Labs</h3>
+                <p>Futuhima works closely with <a href="https://benquemax.com/">Benquemax Labs</a>, a Finnish AI research laboratory, on AI project consultation. Together we help organizations adopt AI effectively.</p>
+                <ul class="examples">
+                    <li>AI adoption strategy for your organization</li>
+                    <li>Workflow automation with AI agents</li>
+                    <li>Private AI infrastructure planning</li>
+                    <li>AI-assisted software development pipelines</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="cta">
+            <a href="mailto:tom.himanen@futuhima.ninja?subject=Request%20for%20Offer" class="cta-button">
+                Request an Offer
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
         </div>
 
-        <a href="mailto:tom.himanen@futuhima.ninja?subject=Request%20for%20Offer" class="cta-button">
-            Request an Offer
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-        </a>
-
-        <div class="legal">
+        <footer class="legal">
             <div>
                 <span class="company-name">Futuhima OÜ</span>
                 <span>·</span>
@@ -218,7 +355,7 @@
                 <span>·</span>
                 Kesk-Ameerika tn 7-1, 10122 Tallinn, Estonia
             </div>
-        </div>
+        </footer>
     </div>
 </body>
 </html>
